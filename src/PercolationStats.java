@@ -14,10 +14,11 @@ public class PercolationStats {
 	public static Random ourRandom = new Random(RANDOM_SEED);
 	
 	 private IPercolate getPercolator(int size) {
+		 return new PercolationDFS(size);
 		 //return new PercolationBFS(size);
          //return new PercolationDFSFast(size); 
-		 IUnionFind uf = new QuickUWPC();
-         return new PercolationUF(uf,size);
+		 //IUnionFind uf = new QuickUWPC();
+         //return new PercolationUF(uf,size);
 	 }
 	 
 	 private ArrayList<int[]> getRandomSites(int size){
@@ -58,11 +59,11 @@ public class PercolationStats {
 	
 	public static void main(String[] args) {
 		PercolationStats ps = new PercolationStats();
-		int trials = 20;
+		int trials = 10;
 		int first = 100;
-		int last = 3200;
+		int last = 400; //3200;
 		System.out.printf("simulation data for %d trials\n",trials);
-		System.out.println("grid\tmean\tstddev\ttime");
+		System.out.println("grid\tmean\tstddev\ttotal time");
 		for(int size = first; size <= last; size *= 2) {
 			double[] data = ps.simulate(size, trials);
 			System.out.printf("%d\t%1.3f\t%1.3f\t%1.3f\n",size,data[0],data[1],data[2]);
