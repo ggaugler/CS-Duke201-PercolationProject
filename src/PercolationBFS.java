@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class PercolationBFS extends PercolationDFS {
+public class PercolationBFS extends PercolationDFSFast {
 	
 	public PercolationBFS(int x) {
 		super(x);
