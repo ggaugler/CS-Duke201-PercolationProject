@@ -12,9 +12,10 @@ public class PercolationBFS extends PercolationDFSFast {
 		myGrid[row][col] = FULL;
 		Queue<Integer> q = new LinkedList<>();
 		q.add((row * myGrid.length) + col);
-		while(q.size() > 0) {
-			int rcord = q.poll()/myGrid.length;
-			int ccord = q.poll()%myGrid.length;
+		while(q.size() != 0) {
+			int guy = q.remove();
+			int rcord = guy / myGrid.length;
+			int ccord = guy % myGrid.length;
 			
 	    	 if(inBounds(rcord, ccord + 1) && isOpen(rcord, ccord + 1) && !isFull(rcord, ccord +1)) 
 	    	 {
