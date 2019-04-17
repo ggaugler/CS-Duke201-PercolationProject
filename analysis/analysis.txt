@@ -7,28 +7,53 @@ and using 20 trials
 
 PercolationDFSFast
 
-(copy paste here)
+simulation data for 20 trials
+grid	mean	stddev	total time
+100	0.593	0.014	0.091
+200	0.591	0.010	0.094
+400	0.590	0.006	0.549
+800	0.594	0.004	3.806
+Exception in thread "main" java.lang.StackOverflowError
 
 PercolationBF
 
-(copy paste here)
+simulation data for 20 trials
+grid	mean	stddev	total time
+100	0.593	0.014	0.081
+200	0.591	0.010	0.091
+400	0.590	0.006	0.558
+800	0.594	0.004	3.852
+1600	0.592	0.002	23.110
+3200	0.593	0.001	132.319
 
 PercolationUF with QuickUWPC
 
-(copy paste here)
+simulation data for 20 trials
+grid	mean	stddev	total time
+100	0.593	0.014	0.099
+200	0.591	0.010	0.150
+400	0.590	0.006	0.704
+800	0.594	0.004	4.155
+1600	0.592	0.002	19.662
+3200	0.593	0.001	95.766
 
 
 Answer these questions for PercolateUF with a QuickUWPC union-find object
 
 How does doubling the grid size affect running time (keeping # trials fixed)
 
-(answer)
+Doubling the grid size increases the run time by approximately NlogN. 
 
 How does doubling the number of trials affect running time.
 
-(answer)
+For all grid sizes, as trial size doubles so does total time (with the exception of
+very small grid sizes, as the time is roughly constant).  This is because
+the process is the same, it is just running double the amount of times, justifying a 
+doubling of overall time.
 
 Estimate the largest grid size you can run in 24 hours with 20 trials. Explain your reasoning.
 
-(answer)
-
+I would guess that the largest grid size with 20 trials one could run in 24 hours is approximately
+10000.  To determine this, I ran a logarithmic regression on the data using the last three points
+(grid sizes of 800, 1600, and 3200).  I then extrapolated this equation to a time of 86400 seconds 
+(equivalent to seconds in a day).  The model estimate is GridSize = 1010.6*ln(time) - 1410.3 ~~ 10000
