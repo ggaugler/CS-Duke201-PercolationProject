@@ -9,7 +9,7 @@ public class PercolationUF implements IPercolate {
 	public PercolationUF (int size, IUnionFind finder) {
 		myGrid = new boolean[size][size];
 		myFinder = finder;
-		myFinder.initialize((2 * size * size) );
+		myFinder.initialize((size * size + 2) );
 		VTOP = size*size;
 		VBOTTOM = size * size + 1;
 		myOpenCount = 0;

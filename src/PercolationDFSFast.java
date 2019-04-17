@@ -1,6 +1,10 @@
 
 public class PercolationDFSFast extends PercolationDFS {
 	
+	/**
+	 * Constructor
+	 * @param x
+	 */
 	public PercolationDFSFast(int x) {
 		super(x);
 	}

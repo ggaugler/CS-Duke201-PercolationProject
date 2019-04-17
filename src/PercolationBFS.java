@@ -2,6 +2,10 @@ import java.util.*;
 
 public class PercolationBFS extends PercolationDFSFast {
 	
+	/**
+	 * Constructor
+	 * @param x
+	 */
 	public PercolationBFS(int x) {
 		super(x);
 	}
